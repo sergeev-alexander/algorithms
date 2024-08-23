@@ -1,4 +1,4 @@
-package alexander.sergeev;
+package sergeev.alexander.algorithms;
 
 import java.util.Arrays;
 
