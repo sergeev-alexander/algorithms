@@ -1,13 +1,15 @@
 package sergeev.alexander.algorithms.binary_tree;
 
 
-public class TreeNode <T> {
+import java.util.Comparator;
+
+public class TreeNode <T extends Comparable<T>> {
 
     T value;
     TreeNode<T> left;
     TreeNode<T> right;
 
-    TreeNode(T value) {
+    public TreeNode(T value) {
         this.value = value;
         this.left = null;
         this.right = null;
