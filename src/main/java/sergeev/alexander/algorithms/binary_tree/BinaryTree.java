@@ -21,4 +21,21 @@ public class BinaryTree<T extends Comparable<T>> {
         return current;
     }
 
+    public boolean containsNode(T value) {
+        return containsNodeRecursive(root, value);
+    }
+
+    private boolean containsNodeRecursive(TreeNode<T> current, T value) {
+        if (current == null) {
+            return false;
+        }
+        if (value == current.value) {
+            return true;
+        }
+        if (value.compareTo(current.value) < 0){
+            return containsNodeRecursive(current.left, value);
+        } else {
+            return containsNodeRecursive(current.right, value);
+        }
+    }
 }
