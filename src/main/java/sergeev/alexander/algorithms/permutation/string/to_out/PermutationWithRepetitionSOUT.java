@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.permutation;
+package sergeev.alexander.algorithms.permutation.string.to_out;
 
 public class PermutationWithRepetitionSOUT {
 

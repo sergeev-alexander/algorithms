@@ -1,8 +1,8 @@
-package sergeev.alexander.algorithms.permutation;
+package sergeev.alexander.algorithms.permutation.string.to_list;
 
 import java.util.ArrayList;
 
-public class Permutation {
+public class PermutationStringToListWithRepitition {
 
     /**
      * List permutations of a string.
