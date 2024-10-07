@@ -11,7 +11,6 @@ public class BinaryTree<T extends Comparable<T>> {
         if (current == null) {
             return new TreeNode<>(value);
         }
-
         if (value.compareTo(current.value) < 0) {
             current.left = addRecursive(current.left, value);
         } else if (value.compareTo(current.value) > 0) {
