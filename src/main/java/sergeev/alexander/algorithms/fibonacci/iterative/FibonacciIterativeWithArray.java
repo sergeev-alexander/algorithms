@@ -1,6 +1,6 @@
-package sergeev.alexander.algorithms.fibonacci;
+package sergeev.alexander.algorithms.fibonacci.iterative;
 
-public class FibonacciIterative {
+public class FibonacciIterativeWithArray {
 
     public static void main(String[] args) {
 
