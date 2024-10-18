@@ -18,6 +18,4 @@ public class FibonacciLastDigitIterative {
         }
         return arr[index] % 10;
     }
-
-    long k = 99999999999999999L;
 }
