@@ -1,10 +1,10 @@
-package sergeev.alexander.algorithms.fibonacci;
+package sergeev.alexander.algorithms.fibonacci.recursive;
 
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FibonacciRecursiveWithCache {
+public class FibonacciRecursiveWithHashMapCache {
 
     private static final Map<Integer, BigInteger> CACHE = new HashMap<>();
 

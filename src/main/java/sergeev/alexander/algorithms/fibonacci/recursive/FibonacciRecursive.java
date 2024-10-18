@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.fibonacci;
+package sergeev.alexander.algorithms.fibonacci.recursive;
 
 public class FibonacciRecursive {
 
