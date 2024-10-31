@@ -20,7 +20,7 @@ public class Heap<T extends Comparable<T>> {
         size = 0;
     }
 
-    public boolean add(T value) {
+    public boolean insert(T value) {
         if (size == maxSize) increaseCapacity();
         array[size] = value;
         displaceUp(size++);

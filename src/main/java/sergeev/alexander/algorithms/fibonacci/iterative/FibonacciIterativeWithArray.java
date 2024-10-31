@@ -3,11 +3,8 @@ package sergeev.alexander.algorithms.fibonacci.iterative;
 public class FibonacciIterativeWithArray {
 
     public static void main(String[] args) {
-
         int n = 8;
-
         System.out.println(fibonacciIterative(n));
-
     }
 
     public static long fibonacciIterative(int n) {

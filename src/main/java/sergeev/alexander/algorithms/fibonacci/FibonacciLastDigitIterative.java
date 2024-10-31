@@ -3,9 +3,7 @@ package sergeev.alexander.algorithms.fibonacci;
 public class FibonacciLastDigitIterative {
 
     public static void main(String[] args) {
-
         int n = 841645; // index of fibonacci number
-
         System.out.println(lastDigitOfFibonacciNumber(n)); // 5
     }
 

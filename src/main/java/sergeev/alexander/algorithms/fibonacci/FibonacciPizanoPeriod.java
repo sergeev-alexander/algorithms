@@ -4,12 +4,9 @@ import java.util.*;
 public class FibonacciPizanoPeriod {
 
     public static void main(String[] args) {
-
         long n = 1025L;
         long m = 55L;
-
         System.out.println(findRestOfDivision(n, m)); // 5
-
     }
 
     public static long findRestOfDivision(long n, long m) {
