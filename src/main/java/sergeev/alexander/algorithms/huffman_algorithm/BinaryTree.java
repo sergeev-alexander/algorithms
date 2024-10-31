@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.hoffman_algorithm;
+package sergeev.alexander.algorithms.huffman_algorithm;
 
 class BinaryTree {
 
@@ -12,7 +12,7 @@ class BinaryTree {
         this.root = root;
     }
 
-    public int getFrequence() {
+    public int getFrequency() {
         return root.getFrequency();
     }
 

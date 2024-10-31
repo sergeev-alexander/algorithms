@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.hoffman_algorithm;
+package sergeev.alexander.algorithms.huffman_algorithm;
 
 import java.util.ArrayList;
 
@@ -17,7 +17,7 @@ class PriorityQueue {
             list.add(newTree);
         } else {
             for (int i = 0; i < size; i++) {
-                if (list.get(i).getFrequence() > newTree.getFrequence()) {
+                if (list.get(i).getFrequency() > newTree.getFrequency()) {
                     list.add(i, newTree);
                     break;
                 }
@@ -29,7 +29,7 @@ class PriorityQueue {
         size++;
     }
 
-    public BinaryTree remove() {
+    public BinaryTree pop() {
         BinaryTree tmp = list.get(0);
         list.remove(0);
         size--;

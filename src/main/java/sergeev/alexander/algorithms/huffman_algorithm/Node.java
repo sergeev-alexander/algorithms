@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.hoffman_algorithm;
+package sergeev.alexander.algorithms.huffman_algorithm;
 
 public class Node {
 
