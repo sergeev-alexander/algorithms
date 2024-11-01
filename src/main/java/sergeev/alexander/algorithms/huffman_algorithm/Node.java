@@ -1,58 +1,78 @@
 package sergeev.alexander.algorithms.huffman_algorithm;
 
-public class Node {
+public class Node implements Comparable<Node> {
 
-    private int frequency;
-    private char letter;
-    private Node leftChild;
-    private Node rightChild;
+    private Character content;
+    private int weight;
+    private Node left;
+    private Node right;
 
-    public Node() {}
-
-    public Node(char letter, int frequency) {
-        this.letter = letter;
-        this.frequency = frequency;
+    public Node(Character content, int weight) {
+        this.content = content;
+        this.weight = weight;
     }
 
-    public void addChild(Node addingNode) {
-        if (leftChild == null) {
-            leftChild = addingNode;
+    public Node(Character content, int weight, Node left, Node right) {
+        this.content = content;
+        this.weight = weight;
+        this.left = left;
+        this.right = right;
+    }
+
+    public String getCodeForCharacter(Character ch, String parentPath) {
+        if (content == ch) {
+            return  parentPath;
         } else {
-            if (leftChild.getFrequency() <= addingNode.getFrequency()) {
-                rightChild = addingNode;
-            } else {
-                rightChild = leftChild;
-                leftChild = addingNode;
+            if (left != null) {
+                String path = left.getCodeForCharacter(ch, parentPath + 0);
+                if (path != null) {
+                    return path;
+                }
+            }
+            if (right != null) {
+                String path = right.getCodeForCharacter(ch, parentPath + 1);
+                if (path != null) {
+                    return path;
+                }
             }
         }
-        frequency += addingNode.getFrequency();
+        return null;
     }
 
-    public Node getLeftChild() {
-        return leftChild;
+    public Character getContent() {
+        return content;
     }
 
-    public Node getRightChild() {
-        return rightChild;
+    public void setContent(Character content) {
+        this.content = content;
     }
 
-    public int getFrequency() {
-        return frequency;
+    public int getWeight() {
+        return weight;
     }
 
-    public char getLetter() {
-        return letter;
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
-    public boolean isLeaf() {
-        return leftChild == null && rightChild == null;
+    public Node getLeft() {
+        return left;
+    }
+
+    public void setLeft(Node left) {
+        this.left = left;
+    }
+
+    public Node getRight() {
+        return right;
+    }
+
+    public void setRight(Node right) {
+        this.right = right;
     }
 
     @Override
-    public String toString() {
-        return "Node{" +
-                "frequency=" + frequency +
-                ", letter=" + letter +
-                '}';
+    public int compareTo(Node o) {
+        return o.weight - weight;
     }
 }

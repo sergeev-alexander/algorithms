@@ -27,7 +27,7 @@ public class Heap<T extends Comparable<T>> {
         return true;
     }
 
-    public T pop() {
+    public T poll() {
         return remove(0);
     }
 
