@@ -7,15 +7,11 @@ import java.util.List;
 public class SelectionSort {
 
     public static void main(String[] args) {
-
-        Integer[] arr = {4, 2, 1, 3, 5, 6};
-        List<Integer> list = new ArrayList<>(Arrays.asList(arr));
-
+        int[] arr = {4, 2, 1, 3, 5, 6};
         System.out.println(Arrays.toString(selectionSort(arr)));
-        System.out.println(typedSelectionSort(list));
     }
 
-    public static Integer[] selectionSort(Integer[] arr) {
+    public static int[] selectionSort(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int min = arr[i];
             int minIndex = i;
