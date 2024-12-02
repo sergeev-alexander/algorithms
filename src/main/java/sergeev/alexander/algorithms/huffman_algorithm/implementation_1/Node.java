@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.huffman_algorithm;
+package sergeev.alexander.algorithms.huffman_algorithm.implementation_1;
 
 public class Node implements Comparable<Node> {
 

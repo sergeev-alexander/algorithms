@@ -15,8 +15,6 @@ public class Main {
                                     new TreeNode<>(38),
                                     new TreeNode<>(52))));
 
-    static TreeNode<String> root2 = new TreeNode<>("str");
-
     public static void main(String[] args) {
         System.out.println(TreeNode.recursiveDFSSum(root));
     }
