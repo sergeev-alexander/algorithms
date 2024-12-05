@@ -1,13 +1,25 @@
-package sergeev.alexander.algorithms.sorting_algorithms;
+package sergeev.alexander.algorithms;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
-public class MergeSort {
+public class ArrayInversionCountUsingMergeSort {
+
+    static long count = 0;
 
     public static void main(String[] args) {
-        int[] arr = {2,3,9,2,9};
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        scanner.nextLine();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        scanner.close();
         mergeSort(arr);
-        System.out.println(Arrays.toString(arr));
+        System.out.println(count);
     }
 
     public static void mergeSort(int[] arr) {
@@ -34,9 +46,12 @@ public class MergeSort {
         int rightIndex = 0;
         int arrIndex = 0;
         while (leftIndex < leftLength && rightIndex < rightLength) {
-            if (leftArr[leftIndex] < rightArr[rightIndex]) {
+            if (leftArr[leftIndex] <= rightArr[rightIndex]) {
                 destArr[arrIndex++] = leftArr[leftIndex++];
-            } else destArr[arrIndex++] = rightArr[rightIndex++];
+            } else {
+                count += leftLength - leftIndex;
+                destArr[arrIndex++] = rightArr[rightIndex++];
+            }
         }
         for (int i = leftIndex; i < leftLength; i++) {
             destArr[arrIndex++] = leftArr[i];
@@ -46,3 +61,4 @@ public class MergeSort {
         }
     }
 }
+
