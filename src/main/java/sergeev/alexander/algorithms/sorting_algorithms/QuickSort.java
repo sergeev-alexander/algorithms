@@ -12,12 +12,12 @@ public class QuickSort {
 
     public static void quickSortComplete(int[] arr, int leftIndex, int rightIndex) {
         if (arr.length == 0 || leftIndex >= rightIndex) return;
-        int pivot = arr[(leftIndex + rightIndex) / 2];
+        int pivotValue = arr[(leftIndex + rightIndex) / 2];
         int leftMarkerIndex = leftIndex;
         int rightMarkerIndex = rightIndex;
         while (leftMarkerIndex <= rightMarkerIndex) {
-            while (arr[leftMarkerIndex] < pivot) leftMarkerIndex++;
-            while (arr[rightMarkerIndex] > pivot) rightMarkerIndex--;
+            while (arr[leftMarkerIndex] < pivotValue) leftMarkerIndex++;
+            while (arr[rightMarkerIndex] > pivotValue) rightMarkerIndex--;
             if (leftMarkerIndex <= rightMarkerIndex) {
                 int temp = arr[leftMarkerIndex];
                 arr[leftMarkerIndex] = arr[rightMarkerIndex];
