@@ -1,6 +1,5 @@
-package sergeev.alexander.algorithms;
+package sergeev.alexander.algorithms.sorting_algorithms;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,24 +7,24 @@ public class SelectionSort {
 
     public static void main(String[] args) {
         int[] arr = {4, 2, 1, 3, 5, 6};
-        System.out.println(Arrays.toString(selectionSort(arr)));
+        selectionSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
-    public static int[] selectionSort(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            int min = arr[i];
-            int minIndex = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < min) {
-                    min = arr[j];
-                    minIndex = j;
+    public static void selectionSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int minVal = array[i];
+            int minPos = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < minVal) {
+                    minVal = array[j];
+                    minPos = j;
                 }
             }
-            int temp = arr[i];
-            arr[i] = min;
-            arr[minIndex] = temp;
+            int temp = array[i];
+            array[i] = array[minPos];
+            array[minPos] = temp;
         }
-        return arr;
     }
 
     private static <T extends Comparable<T>> List<T> typedSelectionSort(List<T> list) {
@@ -44,5 +43,4 @@ public class SelectionSort {
         }
         return list;
     }
-
 }
