@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.binary_tree;
+package sergeev.alexander.data_structures.binary_tree;
 
 public class BinaryTree<T extends Comparable<T>> {
     TreeNode<T> root;

@@ -1,7 +1,5 @@
-package sergeev.alexander.algorithms.binary_tree;
+package sergeev.alexander.data_structures.binary_tree;
 
-
-import java.util.Comparator;
 
 public class TreeNode <T extends Comparable<T>> {
 

@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.heap;
+package sergeev.alexander.data_structures.heap;
 
 import java.util.Arrays;
 

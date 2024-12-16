@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.tree;
+package sergeev.alexander.data_structures.tree;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -7,7 +7,7 @@ import java.util.Queue;
 
 public class TreeNode<T> {
 
-    private T value;
+    private final T value;
     private TreeNode<T> left;
     private TreeNode<T> right;
 

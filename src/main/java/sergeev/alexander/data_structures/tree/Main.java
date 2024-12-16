@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.tree;
+package sergeev.alexander.data_structures.tree;
 
 public class Main {
 
