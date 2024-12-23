@@ -1,10 +1,9 @@
-package sergeev.alexander.algorithms;
-
-import java.util.Arrays;
+package sergeev.alexander;
 
 public class Temp {
 
     public static void main(String[] args) {
+
     }
 
 
