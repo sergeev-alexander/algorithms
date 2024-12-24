@@ -3,7 +3,6 @@ package sergeev.alexander.algorithms.GCD;
 public class GreatestCommonDivisor {
 
     public static void main(String[] args) {
-
         int a = 14 * 5;
         int b = 14 * 10;
         System.out.println(recursiveGCD(a, b));

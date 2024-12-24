@@ -78,6 +78,4 @@ public class TreeNode<T> {
         }
         return summ;
     }
-
-
 }

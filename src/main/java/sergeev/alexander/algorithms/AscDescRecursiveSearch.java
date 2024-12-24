@@ -15,7 +15,6 @@ public class AscDescRecursiveSearch {
     }
 
     private static int searchBinary(int[] array, int elem) {
-        // возвращает 1, если массив отсортирован по возрастанию, и -1, если по убыванию
         int sort = getSortRecursive(array, 0, 0);
         if(sort > 0){
             return  searchBinaryAscending(array, elem);
@@ -42,27 +41,27 @@ public class AscDescRecursiveSearch {
     }
 
     private static int searchBinaryAscending(int[] arr, int elem) {
-        return myASCSearch(arr, elem, 0, arr.length - 1);
+        return ascSearch(arr, elem, 0, arr.length - 1);
     }
 
     private static int searchBinaryDescending(int[] arr, int elem) {
-        return myDESCSearch(arr, elem, 0, arr.length - 1);
+        return descSearch(arr, elem, 0, arr.length - 1);
     }
 
-    private static int myASCSearch(int[] arr, int elem, int left, int right) {
+    private static int ascSearch(int[] arr, int elem, int left, int right) {
         if (left >= right) return -1;
         int mid = (left + right) / 2;
         if (elem == arr[mid]) return mid;
-        if (elem < arr[mid]) return myASCSearch(arr, elem, left, mid - 1);
-        else return myASCSearch(arr, elem, mid + 1, right);
+        if (elem < arr[mid]) return ascSearch(arr, elem, left, mid - 1);
+        else return ascSearch(arr, elem, mid + 1, right);
     }
 
-    private static int myDESCSearch(int[] arr, int elem, int left, int right) {
+    private static int descSearch(int[] arr, int elem, int left, int right) {
         if (left >= right) return -1;
         int mid = (left + right) / 2;
         if (elem == arr[mid]) return mid;
-        if (elem < arr[mid]) return myDESCSearch(arr, elem, mid + 1, right);
-        else return myDESCSearch(arr, elem, left, mid);
+        if (elem < arr[mid]) return descSearch(arr, elem, mid + 1, right);
+        else return descSearch(arr, elem, left, mid);
     }
 
 }
