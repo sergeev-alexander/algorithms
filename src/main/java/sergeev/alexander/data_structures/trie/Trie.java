@@ -3,19 +3,19 @@ package sergeev.alexander.data_structures.trie;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Tire {
+public class Trie {
 
-    private final TireNode root;
+    private final TrieNode root;
 
-    public Tire() {
-        root = new TireNode();
+    public Trie() {
+        root = new TrieNode();
     }
 
     public void insert(String word) {
-        TireNode current = root;
+        TrieNode current = root;
         for (char ch : word.toCharArray()) {
             if (!current.childrenMap.containsKey(ch)) {
-                current.childrenMap.put(ch, new TireNode());
+                current.childrenMap.put(ch, new TrieNode());
             }
             current = current.childrenMap.get(ch);
         }
@@ -23,7 +23,7 @@ public class Tire {
     }
 
     public boolean search(String word) {
-        TireNode current = root;
+        TrieNode current = root;
         for (char ch : word.toCharArray()) {
             if (!current.childrenMap.containsKey(ch)) return false;
             current = current.childrenMap.get(ch);
@@ -32,7 +32,7 @@ public class Tire {
     }
 
     public boolean startsWith(String prefix) {
-        TireNode current = root;
+        TrieNode current = root;
         for (char ch : prefix.toCharArray()) {
             if (!current.childrenMap.containsKey(ch)) return false;
             current = current.childrenMap.get(ch);
@@ -40,12 +40,12 @@ public class Tire {
         return true;
     }
 
-    static class TireNode {
+    static class TrieNode {
 
-        Map<Character, TireNode> childrenMap;
+        Map<Character, TrieNode> childrenMap;
         boolean isLeaf;
 
-        public TireNode() {
+        public TrieNode() {
             this.childrenMap = new HashMap<>();
             this.isLeaf = false;
         }
