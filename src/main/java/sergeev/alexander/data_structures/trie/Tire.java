@@ -3,11 +3,11 @@ package sergeev.alexander.data_structures.trie;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SimpleTire {
+public class Tire {
 
     private final TireNode root;
 
-    public SimpleTire() {
+    public Tire() {
         root = new TireNode();
     }
 
