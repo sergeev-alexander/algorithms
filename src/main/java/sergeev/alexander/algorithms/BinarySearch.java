@@ -6,14 +6,11 @@ import java.util.List;
 public class BinarySearch {
 
     public static void main(String[] args) {
-
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        Integer[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-
+        int[] arr = {1, 3, 5, 2, 0, 6, 7, 9, 8};
+        Integer[] array = {1, 3, 5, 2, 0, 6, 7, 9, 8};
         int num = 8;
-
         System.out.println(binarySearch(arr, num));
-        System.out.println(binarySearch1(num, 1, 2, 3, 4, 5, 6, 7, 8, 9));
+        System.out.println(binarySearch1(num, 1, 3, 5, 2, 0, 6, 7, 9, 8));
         System.out.println(binaryRecursiveSearch(arr, num, 0, arr.length - 1));
         System.out.println(typedBinaryRecursiveSearch(Arrays.asList(array), num, 0, array.length - 1));
 

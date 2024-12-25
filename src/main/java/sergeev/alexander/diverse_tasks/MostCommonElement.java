@@ -7,10 +7,8 @@ import java.util.List;
 public class MostCommonElement {
 
     public static void main(String[] args) {
-
         List<Integer> data = List.of(1, 2, 3, 4, 4, 3, 4, 6, 8, 10);
-        int result = findMostFrequentElement(data);
-        System.out.println(result);
+        System.out.println(findMostFrequentElement(data));
     }
 
     public static int findMostFrequentElement(List<Integer> data) {
