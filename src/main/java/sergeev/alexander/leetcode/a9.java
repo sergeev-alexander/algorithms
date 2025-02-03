@@ -1,6 +1,11 @@
-package sergeev.alexander;
+package sergeev.alexander.leetcode;
 
-public class Temp {
+// 9. Palindrome Number
+public class a9 {
+
+    /*
+    Given an integer x, return true if x is a palindrome, and false otherwise.
+     */
 
     public static void main(String[] args) {
         int num = 101;
@@ -35,4 +40,3 @@ public class Temp {
         return true;
     }
 }
-
