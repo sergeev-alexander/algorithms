@@ -2,37 +2,78 @@ package sergeev.alexander;
 
 public class Temp {
 
+    // #79
     public static void main(String[] args) {
-        int num = 101;
-        System.out.println(isPalindrome(num));
+        char[][] board = {
+//                {'A', 'B', 'C', 'E'},
+//                {'S', 'F', 'C', 'S'},
+//                {'A', 'D', 'E', 'E'}};
+                {'C', 'A', 'A'},
+                {'A', 'A', 'A'},
+                {'B', 'C', 'D'}};
+        String s = "AAB";
+        System.out.println(exist(board, s));
     }
 
-    // BEATS 100%
-    public static boolean isPalindrome(int x) {
-        if (x < 0 || (x % 10 == 0 && x != 0)) return false;
-        int reversed = 0;
-        while (x > reversed) {
-            reversed = reversed * 10 + x % 10;
-            x /= 10;
+    public static boolean exist(char[][] board, String word) {
+        int m = board.length;
+        int n = board[0].length;
+        char[] wordArr = word.toCharArray();
+        int wordLength = wordArr.length;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (board[i][j] == wordArr[0]) {
+                    int mPos = i;
+                    int nPos = j;
+                    int charPos = 1;
+                    boolean[][] visited = new boolean[board.length][board[0].length];
+                    visited[mPos][nPos] = true;
+                    while (true) {
+                        if (charPos == wordLength) {
+                            return true;
+                        }
+                        if (isValidCell(mPos + 1, nPos, m, n)
+                                && board[mPos + 1][nPos] == wordArr[charPos]
+                                && !visited[mPos + 1][nPos]) {
+                            visited[mPos + 1][nPos] = true;
+                            charPos++;
+                            mPos++;
+                            continue;
+                        }
+                        if (isValidCell(mPos - 1, nPos, m, n)
+                                && board[mPos - 1][nPos] == wordArr[charPos]
+                                && !visited[mPos - 1][nPos]) {
+                            visited[mPos - 1][nPos] = true;
+                            charPos++;
+                            mPos--;
+                            continue;
+                        }
+                        if (isValidCell(mPos, nPos + 1, m, n)
+                                && board[mPos][nPos + 1] == wordArr[charPos]
+                                && !visited[mPos][nPos + 1]) {
+                            visited[mPos][nPos + 1] = true;
+                            charPos++;
+                            nPos++;
+                            continue;
+                        }
+                        if (isValidCell(mPos, nPos - 1, m, n)
+                                && board[mPos][nPos - 1] == wordArr[charPos]
+                                && !visited[mPos][nPos - 1]) {
+                            visited[mPos][nPos - 1] = true;
+                            charPos++;
+                            nPos--;
+                            continue;
+                        }
+                        break;
+                    }
+                }
+            }
         }
-        return x == reversed || x == reversed / 10;
+        return false;
     }
 
-    // BEATS 29%
-    public static boolean isPalindrome1(int x) {
-        if (x < 0) return false;
-        int size = (int) Math.log10(x);
-        if (size == 0) return true;
-        while (size >= 1) {
-            int a = (int) Math.pow(10, size);
-            int left = x / a;
-            int right = x % 10;
-            if (left != right) return false;
-            x %= a;
-            x /= 10;
-            size -= 2;
-        }
-        return true;
+    public static boolean isValidCell(int row, int col, int m, int n) {
+        if (row < 0 || row >= m) return false;
+        return col >= 0 && col < n;
     }
 }
-
