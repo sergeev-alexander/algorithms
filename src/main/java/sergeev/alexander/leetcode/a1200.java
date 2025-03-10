@@ -1,10 +1,19 @@
-package sergeev.alexander;
+package sergeev.alexander.leetcode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Temp {
+// 1200. Minimum Absolute Difference
+public class a1200 {
+
+    /*
+    Given an array of distinct integers arr, find all pairs of elements with the minimum absolute difference of any two elements.
+    Return a list of pairs in ascending order(with respect to pairs), each pair [a, b] follows
+    a, b are from arr
+    a < b
+    b - a equals to the minimum absolute difference of any two elements in arr
+     */
 
     public static void main(String[] args) {
         int[] arr = {3, 8, -10, 23, 19, -4, -14, 27};
