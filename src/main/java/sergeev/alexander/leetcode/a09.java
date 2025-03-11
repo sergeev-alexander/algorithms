@@ -1,7 +1,7 @@
 package sergeev.alexander.leetcode;
 
 // 9. Palindrome Number
-public class a9 {
+public class a09 {
 
     /*
     Given an integer x, return true if x is a palindrome, and false otherwise.
