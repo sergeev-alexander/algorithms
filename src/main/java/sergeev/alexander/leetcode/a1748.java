@@ -21,29 +21,23 @@ public class a1748 {
         System.out.println(sumOfUnique(nums));
     }
 
-    // faster, but could be better
+    // BEATS 100%
     public static int sumOfUnique(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0, j = nums.length - 1; i <= j; i++, j--) {
-            if (map.containsKey(nums[i])) {
-                map.put(nums[i], map.get(nums[i]) + 1);
-            } else map.put(nums[i], 1);
-            if (i != j) {
-                if (map.containsKey(nums[j])) {
-                    map.put(nums[j], map.get(nums[j]) + 1);
-                } else map.put(nums[j], 1);
-            }
+        int[] arr = new int[101];
+        for (int num : nums) {
+            arr[num]++;
         }
         int sum = 0;
-        for (Integer num : map.keySet()) {
-            if (map.get(num) == 1) {
+        for (int num : nums) {
+            if (arr[num] == 1) {
                 sum += num;
             }
         }
         return sum;
     }
 
-    public static int sumOfUnique_SLOW(int[] nums) {
+    // FUN
+    public static int sumOfUnique1(int[] nums) {
         return Arrays.stream(nums)
                 .boxed()
                 .collect(Collectors.toMap(Function.identity(), v -> 1, (o, n) -> o + 1, HashMap::new))
