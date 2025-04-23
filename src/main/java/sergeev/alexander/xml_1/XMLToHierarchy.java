@@ -1,7 +1,6 @@
-package sergeev.alexander;
+package sergeev.alexander.xml_1;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -17,7 +16,7 @@ public class XMLToHierarchy {
     public static void main(String[] args) {
         try {
             // Указываем путь к XML-файлу
-            File xmlFile = new File("book.xml");
+            File xmlFile = new File("watchKids.xml");
 
             // Создаем парсер
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -26,7 +25,7 @@ public class XMLToHierarchy {
             doc.getDocumentElement().normalize();
 
             // Создаем файл для записи результата
-            File outputFile = new File("book.txt");
+            File outputFile = new File("3-6.txt");
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
 
             // Рекурсивно обходим XML и записываем иерархию в файл
