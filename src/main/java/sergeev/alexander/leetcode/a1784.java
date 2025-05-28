@@ -15,6 +15,11 @@ public class a1784 {
 
     // BEATS 100%
     public static boolean checkOnesSegment(String s) {
+        return !s.contains("01");
+    }
+
+    // BEATS 100%
+    public static boolean checkOnesSegment1(String s) {
         boolean wasZero = false;
         for (int i = 1; i < s.length(); i++) {
             if (s.charAt(i) == '0') {
