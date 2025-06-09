@@ -16,7 +16,7 @@ public class XMLToHierarchy {
     public static void main(String[] args) {
         try {
             // Указываем путь к XML-файлу
-            File xmlFile = new File("watchKids.xml");
+            File xmlFile = new File("book.xml");
 
             // Создаем парсер
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -25,7 +25,7 @@ public class XMLToHierarchy {
             doc.getDocumentElement().normalize();
 
             // Создаем файл для записи результата
-            File outputFile = new File("3-6.txt");
+            File outputFile = new File("book.txt");
             BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
 
             // Рекурсивно обходим XML и записываем иерархию в файл
