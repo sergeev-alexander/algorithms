@@ -32,12 +32,10 @@ public class a1832 {
     // BEATS 46%
     public static boolean checkIfPangram1(String sentence) {
         BitSet bitSet = new BitSet();
-
         for (int i = 0; i < sentence.length(); i++) {
             int pos = sentence.charAt(i) - 'a';
             bitSet.set(pos);
         }
-
         return bitSet.cardinality() == 26;
     }
 }
