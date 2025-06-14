@@ -1,4 +1,4 @@
-package sergeev.alexander.xml_1;
+package sergeev.alexander.xml;
 import java.io.File;
 
 import org.w3c.dom.Document;

@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms.sorting_algorithms;
+package sergeev.alexander.algorithms.algorithms;
 
 import java.util.Arrays;
 

@@ -21,8 +21,18 @@ public class a1833 {
         System.out.println(maxIceCream(arr, coins));
     }
 
-    // BEATS 65%
     public static int maxIceCream(int[] costs, int coins) {
+        int max = 0;
+        int min = 0;
+        for (int num : costs) {
+            max = Math.max(max, num);
+            min = Math.min(min, num);
+        }
+        return -1;
+    }
+
+    // BEATS 65%
+    public static int maxIceCream1(int[] costs, int coins) {
         Arrays.sort(costs);
         int count = 0;
         int pos = 0;

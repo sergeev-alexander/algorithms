@@ -1,4 +1,4 @@
-package sergeev.alexander.xml_1;
+package sergeev.alexander.xml;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
