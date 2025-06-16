@@ -27,6 +27,7 @@ public class CountingSort {
         }
 
         int pos = 0;
+
         for (int i = 0; i < countArray.length; i++) {
             while (countArray[i] > 0) {
                 array[pos++] = i + min;

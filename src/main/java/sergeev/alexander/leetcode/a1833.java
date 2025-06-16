@@ -21,14 +21,38 @@ public class a1833 {
         System.out.println(maxIceCream(arr, coins));
     }
 
+    // BEATS 99%
     public static int maxIceCream(int[] costs, int coins) {
-        int max = 0;
-        int min = 0;
+        int min = costs[0];
+        int max = costs[0];
+
         for (int num : costs) {
-            max = Math.max(max, num);
             min = Math.min(min, num);
+            max = Math.max(max, num);
         }
-        return -1;
+
+        int dif = max - min + 1;
+        int[] countArr = new int[dif];
+
+        for (int num : costs) {
+            countArr[num - min]++;
+        }
+
+        int count = 0;
+
+        for (int i = 0; i < countArr.length; i++) {
+            int currentPrice = i + min;
+            if (coins - currentPrice < 0) {
+                break;
+            }
+            while (countArr[i] > 0 && coins - currentPrice >= 0) {
+                count++;
+                coins -= currentPrice;
+                countArr[i]--;
+            }
+        }
+
+        return count;
     }
 
     // BEATS 65%
