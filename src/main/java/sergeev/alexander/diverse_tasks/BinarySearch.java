@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms;
+package sergeev.alexander.diverse_tasks;
 
 import java.util.Arrays;
 import java.util.List;

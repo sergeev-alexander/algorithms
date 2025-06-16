@@ -1,4 +1,4 @@
-package sergeev.alexander.algorithms;
+package sergeev.alexander.diverse_tasks;
 
 public class Recursion {
 

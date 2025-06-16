@@ -1,8 +1,5 @@
-package sergeev.alexander.algorithms;
+package sergeev.alexander.algorithms.sorting;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class ArrayInversionCountUsingMergeSort {
