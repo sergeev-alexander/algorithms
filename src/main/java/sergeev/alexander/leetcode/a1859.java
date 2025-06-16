@@ -1,5 +1,7 @@
 package sergeev.alexander.leetcode;
 
+import java.util.Arrays;
+
 // 1859. Sorting the Sentence
 public class a1859 {
 
