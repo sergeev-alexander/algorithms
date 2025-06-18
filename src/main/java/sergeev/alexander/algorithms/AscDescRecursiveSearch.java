@@ -1,4 +1,4 @@
-package sergeev.alexander.diverse_tasks;
+package sergeev.alexander.algorithms;
 
 public class AscDescRecursiveSearch {
 
