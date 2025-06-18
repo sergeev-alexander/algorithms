@@ -1,5 +1,7 @@
 package sergeev.alexander.leetcode;
 
+import java.util.function.Predicate;
+
 // 1881. Maximum Value after Insertion
 public class a1881 {
 
@@ -14,13 +16,51 @@ public class a1881 {
      */
 
     public static void main(String[] args) {
-        String n = "-132";
-        int x = 3;
+        String n = "13";
+        int x = 2;
         System.out.println(maxValue(n, x));
     }
 
     // BEATS 83%
     public static String maxValue(String n, int x) {
+        StringBuilder stringBuilder = new StringBuilder(n);
+        boolean isNegative = n.charAt(0) == '-';
+
+        for (int i = isNegative ? 1 : 0; i < n.length(); i++) {
+            int num = n.charAt(i) - '0';
+            if (!isNegative && num < x || isNegative && num > x) {
+                return stringBuilder.insert(i, x).toString();
+            }
+        }
+
+        return stringBuilder.append(x).toString();
+
+    }
+
+    // BEATS 83%
+    public static String maxValue2(String n, int x) {
+        StringBuilder stringBuilder = new StringBuilder(n);
+        char[] arr = n.toCharArray();
+        if (arr[0] != '-') {
+
+            for (int i = 0; i < arr.length; i++) {
+                if ((int) arr[i] - '0' < x)
+                    return stringBuilder.insert(i, x).toString();
+            }
+
+        } else {
+
+            for (int i = 1; i < arr.length; i++) {
+                if ((int) arr[i] - '0' > x)
+                    return stringBuilder.insert(i, x).toString();
+            }
+
+        }
+        return stringBuilder.append(x).toString();
+    }
+
+    // BEATS 83%
+    public static String maxValue1(String n, int x) {
         StringBuilder stringBuilder = new StringBuilder(n);
         if (!n.startsWith("-")) {
 
