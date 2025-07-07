@@ -1,41 +1,45 @@
 package sergeev.alexander;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class Temp {
 
     public static void main(String[] args) {
-        int[][] arr = {{1,10}, {10,20}};
-        int left = 21, right = 21;
-        System.out.println(isCovered(arr, left, right));
+        int[][] arr = {{4,8},{3,6},{10,20},{15,30}};
+        System.out.println(interchangeableRectangles(arr));
     }
 
-    public static boolean isCovered(int[][] ranges, int left, int right) {
-        for (int i = left; i <= right; i++) {
-            boolean isCovered = false;
+    // BEATS 97%
+    public static long interchangeableRectangles(int[][] rectangles) {
+        Map<Double, Integer> map = new HashMap<>();
 
-            for (int[] arr : ranges) {
-                if (arr[0] <= i && arr[1] >= i) {
-                    isCovered = true;
-                    break;
-                }
-            }
-
-            if (!isCovered) return false;
+        for (int[] arr : rectangles) {
+            map.merge((double) arr[0] / arr[1], 1, Integer::sum);
         }
 
-        return true;
+        long count = 0;
+        for (int val : map.values()) {
+            if (val > 1) count+= (long) val * (val - 1) / 2;
+        }
+
+        return count;
     }
 
-    // BEATS 44%
-    public static boolean isCovered1(int[][] ranges, int left, int right) {
-        int[] array = new int[51];
-        for (int[] arr : ranges) {
-            for (int i = arr[0]; i <= arr[1]; i++) {
-                array[i]++;
+    // TLE
+    public static long interchangeableRectangles1(int[][] rectangles) {
+        int n = rectangles.length;
+        long count = 0;
+
+        for (int i = 0; i < n - 1; i++) {
+            double currentRatio = (double) rectangles[i][0] / rectangles[i][1];
+            for (int j = i + 1; j < n; j++) {
+                if (currentRatio == (double) rectangles[j][0] / rectangles[j][1]) count++;
             }
         }
-        for (int i = left; i <= right; i++) {
-            if (array[i] == 0) return false;
-        }
-        return true;
+
+        return count;
     }
 }
