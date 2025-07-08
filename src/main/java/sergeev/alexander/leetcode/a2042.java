@@ -39,4 +39,21 @@ public class a2042 {
         }
         return true;
     }
+
+    // BEATS 90%
+    public static boolean areNumbersAscending1(String s) {
+        String[] arr = s.split(" ");
+        int num = -1;
+
+        for (String str : arr) {
+            if (Character.isDigit(str.charAt(0))) {
+                int currentNum = Integer.parseInt(str);
+                if (currentNum > num) {
+                    num = currentNum;
+                } else return false;
+            }
+        }
+
+        return true;
+    }
 }
