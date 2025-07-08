@@ -18,17 +18,19 @@ public class a2053 {
         System.out.println(kthDistinct(arr, k));
     }
 
-    // BEATS 87%
+    // BEATS 89%
     public static String kthDistinct(String[] arr, int k) {
         Map<String, Integer> map = new LinkedHashMap<>();
+
         for (String s : arr) {
             map.merge(s, 1, Integer::sum);
         }
-        int count = 0;
+
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            if (entry.getValue() == 1) count++;
-            if (count == k) return entry.getKey();
+            if (entry.getValue() == 1) k--;
+            if (k == 0) return entry.getKey();
         }
+
         return "";
     }
 
