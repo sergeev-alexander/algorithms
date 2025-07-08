@@ -16,6 +16,7 @@ public class a41 {
         System.out.println(firstMissingPositive(nums));
     }
 
+    // BEATS 100%
     public static int firstMissingPositive(int[] nums) {
         int numsLength = nums.length;
         boolean[] seen = new boolean[numsLength + 1];
