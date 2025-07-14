@@ -7,7 +7,7 @@ public class Permutation {
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3};
-        System.out.println(permute(arr));
+        System.out.println(permuteRecursive(arr));
     }
 
     // Recursive permutation
