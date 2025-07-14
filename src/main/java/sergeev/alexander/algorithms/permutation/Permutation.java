@@ -13,12 +13,12 @@ public class Permutation {
     // Recursive permutation
     public static List<List<Integer>> permuteRecursive(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-        generatePermutations(nums, 0, result);
+        permuteRecursive(nums, 0, result);
         return result;
     }
 
     // Recursive permutation
-    public static void generatePermutations(int[] nums, int start, List<List<Integer>> result) {
+    public static void permuteRecursive(int[] nums, int start, List<List<Integer>> result) {
         if (start == nums.length - 1) {
             List<Integer> list = new ArrayList<>();
 
@@ -31,13 +31,13 @@ public class Permutation {
         }
         for (int i = start; i < nums.length; i++) {
             swap(nums, start, i);
-            generatePermutations(nums, start + 1, result);
+            permuteRecursive(nums, start + 1, result);
             swap(nums, start, i);
         }
     }
 
-    // Iteractive permutation
-    public static List<List<Integer>> permute(int[] nums) {
+    // Iteractive permutation 1
+    public static List<List<Integer>> permute1(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         int n = nums.length;
         int[] arr = new int[n];
@@ -56,6 +56,36 @@ public class Permutation {
                 i = 0; // Сбрасываем для следующей итерации
             } else {
                 arr[i] = 0;
+                i++;
+            }
+        }
+        return result;
+    }
+
+    // Iteractive permutation 2
+    public static List<List<Integer>> permute2(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        int n = nums.length;
+        int[] c = new int[n]; // Массив счётчиков (по умолчанию заполнен нулями)
+
+        // Добавляем исходную перестановку
+        result.add(toList(nums));
+
+        int i = 0;
+        while (i < n) {
+            if (c[i] < i) {
+                // Определяем, какие элементы менять местами
+                if (i % 2 == 0) {
+                    swap(nums, 0, i); // Для чётного i
+                } else {
+                    swap(nums, c[i], i); // Для нечётного i
+                }
+                // Добавляем новую перестановку в результат
+                result.add(toList(nums));
+                c[i]++; // Увеличиваем счётчик
+                i = 0;  // Сбрасываем i для следующей итерации
+            } else {
+                c[i] = 0; // Обнуляем счётчик, если c[i] >= i
                 i++;
             }
         }
