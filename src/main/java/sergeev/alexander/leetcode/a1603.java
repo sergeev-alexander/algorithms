@@ -3,7 +3,7 @@ package sergeev.alexander.leetcode;
 // 1603. Design Parking System
 public class a1603 {
 
-    class ParkingSystem {
+    static class ParkingSystem {
 
         private int big;
         private int medium;
