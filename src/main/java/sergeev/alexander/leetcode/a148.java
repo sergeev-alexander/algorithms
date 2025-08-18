@@ -42,7 +42,6 @@ public class a148 {
         return dummy;
     }
 
-
     static class ListNode {
         int val;
 
