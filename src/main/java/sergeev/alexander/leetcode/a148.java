@@ -2,7 +2,12 @@ package sergeev.alexander.leetcode;
 
 import java.util.*;
 
+// 148. Sort List
 public class a148 {
+
+    /*
+    Given the head of a linked list, return the list after sorting it in ascending order.
+     */
 
     public static void main(String[] args) {
         ListNode head =
