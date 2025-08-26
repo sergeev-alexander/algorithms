@@ -23,4 +23,38 @@ public class a2185 {
         }
         return count;
     }
+
+    // BEATS 30%
+    public static int prefixCount1(String[] words, String pref) {
+        int count = 0;
+
+        for (String s : words) {
+            if (s.length() >= pref.length()) {
+                if (s.substring(0, pref.length()).equals(pref)) {
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
+    // BEATS 11%
+    public static int prefixCount2(String[] words, String pref) {
+        int count = 0;
+
+        MARK:
+        for (String s : words) {
+            if (s.length() >= pref.length()) {
+
+                for (int i = 0; i < pref.length(); i++) {
+                    if (pref.charAt(i) != s.charAt(i)) continue MARK;
+                }
+
+                count++;
+            }
+        }
+
+        return count;
+    }
 }
