@@ -18,8 +18,24 @@ public class a2206 {
         System.out.println(divideArray(arr));
     }
 
-    // BEATS 100%
     public static boolean divideArray(int[] nums) {
+        if (nums.length % 2 != 0) return false;
+
+        int[] arr = new int[501];
+
+        for (int num : nums) {
+            arr[num]++;
+        }
+
+        for (int num : arr) {
+            if (num % 2 != 0) return false;
+        }
+
+        return true;
+    }
+
+    // BEATS 99%
+    public static boolean divideArray4(int[] nums) {
         int[] arr = new int[501];
         int count = 0;
         for (int num : nums) {
