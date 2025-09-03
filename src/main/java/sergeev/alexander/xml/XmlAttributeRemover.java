@@ -10,7 +10,7 @@ import java.util.List;
 
 public class XmlAttributeRemover {
 
-    private static final String INPUT_FILE_PATH = "video_full.xml";
+    private static final String INPUT_FILE_PATH = "input_video.xml";
     private static final String OUTPUT_FILE_PATH = "video.xml";
     private static final List<String> ATTRIBUTES_TO_REMOVE = List.of("gpt", "eng");
 

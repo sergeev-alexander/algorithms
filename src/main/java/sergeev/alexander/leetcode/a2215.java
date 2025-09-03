@@ -19,29 +19,94 @@ public class a2215 {
         System.out.println(findDifference(nums1, nums2));
     }
 
+    // BEATS 99%
     public static List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         boolean[] arr1 = new boolean[2001];
         boolean[] arr2 = new boolean[2001];
+
         List<Integer> list1 = new ArrayList<>();
         List<Integer> list2 = new ArrayList<>();
+
         for (int num : nums1) {
             arr1[num + 1000] = true;
         }
+
         for (int num : nums2) {
+            if (!arr1[num + 1000]) {
+                list2.add(num);
+                arr1[num + 1000] = true;
+            }
             arr2[num + 1000] = true;
         }
+
         for (int num : nums1) {
             if (!arr2[num + 1000]) {
                 list1.add(num);
                 arr2[num + 1000] = true;
             }
         }
+
+        return List.of(list1, list2);
+    }
+
+    // BEATS 99%
+    public static List<List<Integer>> findDifference2(int[] nums1, int[] nums2) {
+        boolean[] arr1 = new boolean[2001];
+        boolean[] arr2 = new boolean[2001];
+
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+
+        for (int num : nums1) {
+            arr1[num + 1000] = true;
+        }
+
+        for (int num : nums2) {
+            arr2[num + 1000] = true;
+        }
+
+        for (int num : nums1) {
+            if (!arr2[num + 1000]) {
+                list1.add(num);
+                arr2[num + 1000] = true;
+            }
+        }
+
         for (int num : nums2) {
             if (!arr1[num + 1000]) {
                 list2.add(num);
                 arr1[num + 1000] = true;
             }
         }
+
         return List.of(list1, list2);
+    }
+
+    // BEATS 99%
+    public static List<List<Integer>> findDifference1(int[] nums1, int[] nums2) {
+        int[] arr1 = new int[2001];
+        int[] arr2 = new int[2001];
+
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+
+        for (int num : nums1) {
+            arr1[num + 1000]++;
+        }
+
+        for (int num : nums2) {
+            if (arr1[num + 1000]++ == 0) {
+                list1.add(num);
+            }
+            arr2[num + 1000]++;
+        }
+
+        for (int num : nums1) {
+            if (arr2[num + 1000]++ == 0) {
+                list2.add(num);
+            }
+        }
+
+        return List.of(list2, list1);
     }
 }
