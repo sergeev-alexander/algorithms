@@ -35,7 +35,7 @@ public class a2224 {
         return count;
     }
 
-    // BETATS 89%
+    // BEATS 89%
     public static int convertTime1(String current, String correct) {
         int currentMinutes = Integer.parseInt(current.substring(0, 2)) * 60 + Integer.parseInt(current.substring(3));
         int targetMinutes = Integer.parseInt(correct.substring(0, 2)) * 60 + Integer.parseInt(correct.substring(3));
