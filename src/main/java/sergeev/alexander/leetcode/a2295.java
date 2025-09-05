@@ -25,17 +25,20 @@ public class a2295 {
         System.out.println(Arrays.toString(arrayChange(nums, ops)));
     }
 
-    // BEATS 95%
+    // BEATS 80%
     public static int[] arrayChange(int[] nums, int[][] operations) {
         Map<Integer, Integer> map = new HashMap<>();
+
         for (int i = 0; i < nums.length; i++) {
             map.put(nums[i], i);
         }
+
         for (int[] operation : operations) {
             int pos = map.remove(operation[0]);
             nums[pos] = operation[1];
             map.put(operation[1], pos);
         }
+
         return nums;
     }
 }
