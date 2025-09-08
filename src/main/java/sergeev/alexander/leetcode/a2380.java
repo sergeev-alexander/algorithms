@@ -20,8 +20,41 @@ public class a2380 {
         int count = 0;
         for (char num : s.toCharArray()) {
             if (num == '0') zeroesCount++;
-            else if (zeroesCount > 0) count = Math.max(count + 1, zeroesCount);
+            else if (zeroesCount > 0) {
+                count = Math.max(count + 1, zeroesCount);
+            }
         }
+        return count;
+    }
+
+    // BEATS 45%
+    public static int secondsToRemoveOccurrences2(String s) {
+        if (s.length() == 1) return 0;
+
+        char[] arr = s.toCharArray();
+        boolean was;
+        int count = 0;
+
+        do {
+            was = false;
+
+            for (int i = 0, j = 1; j < arr.length; ) {
+                if (arr[i] == '0' && arr[j] == '1') {
+                    arr[i] = '1';
+                    arr[j] = '0';
+                    i += 2;
+                    j += 2;
+                    was = true;
+                } else {
+                    i++;
+                    j++;
+                }
+            }
+
+            if (was) count++;
+
+        } while (was);
+
         return count;
     }
 
