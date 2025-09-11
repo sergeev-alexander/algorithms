@@ -3638,7 +3638,7 @@
                                         eng="operating systems+networks"/>
                                 <answer label="Компьютерное железо" key="HARDWARE" eng="hardware"/>
                                 <answer label="Книги о компьютерах" key="COMPUTER_BOOKS"
-                                        eng="books about computers"/>
+                                        eng="computers"/>
                                 <answer label="Информационная безопасность" key="INFORMATION_SECURITY"
                                         eng="information security"/>
                             </question>
@@ -3800,7 +3800,7 @@
                 </answer>
 
                 <answer label="Хобби и досуг" key="ADULTS_LEISURE"
-                        eng="hobbies+leisure">
+                        eng="hobby+hobbies+leisure">
                     <question label="Поджанры"
                               key="ADULTS_LEISURE_GENRE"
                               type="many">
@@ -3808,7 +3808,7 @@
                         <answer label="Отдых и туризм" key="TOURISM"
                                 eng="recreation+tourism"/>
                         <answer label="Хобби и увлечения" key="HOBBY"
-                                eng="hobbies+interests"/>
+                                eng="hobby+hobbies"/>
                         <answer label="Охота" key="HUNTING" eng="hunting"/>
                         <answer label="Рыбалка" key="FISHING" eng="fishing"/>
                         <answer label="Природа и животные" key="NATURE"

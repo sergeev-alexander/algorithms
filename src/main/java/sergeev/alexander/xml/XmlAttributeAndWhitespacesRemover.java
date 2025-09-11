@@ -1,14 +1,21 @@
 package sergeev.alexander.xml;
 
-import org.w3c.dom.*;
-import javax.xml.parsers.*;
-import javax.xml.transform.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.util.List;
 
-public class XmlAttributeRemover {
+public class XmlAttributeAndWhitespacesRemover {
 
     private static final String INPUT_FILE_PATH = "input_book.xml";
     private static final String OUTPUT_FILE_PATH = "book.xml";
@@ -16,20 +23,16 @@ public class XmlAttributeRemover {
 
     public static void main(String[] args) {
         try {
-            // Создаем парсер
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-
-            // Парсим входной XML-файл
             Document document = builder.parse(new File(INPUT_FILE_PATH));
 
-            // Получаем корневой элемент
             Element root = document.getDocumentElement();
-
-            // Рекурсивно проходим по всем элементам и удаляем атрибуты
             removeAttributes(root);
 
-            // Сохраняем измененный документ в новый файл
+            // УДАЛЯЕМ пробельные узлы перед сохранением
+            removeWhitespaceNodes(root);
+
             saveDocument(document, OUTPUT_FILE_PATH);
 
             System.out.println("Атрибуты успешно удалены. Результат сохранен в " + OUTPUT_FILE_PATH);
@@ -39,16 +42,13 @@ public class XmlAttributeRemover {
         }
     }
 
-    // Рекурсивный метод для удаления атрибутов у элемента и его дочерних элементов
     private static void removeAttributes(Element element) {
-        // Удаляем указанные атрибуты у текущего элемента
         for (String attrName : ATTRIBUTES_TO_REMOVE) {
             if (element.hasAttribute(attrName)) {
                 element.removeAttribute(attrName);
             }
         }
 
-        // Рекурсивно обрабатываем дочерние элементы
         NodeList children = element.getChildNodes();
         for (int i = 0; i < children.getLength(); i++) {
             Node node = children.item(i);
@@ -58,17 +58,36 @@ public class XmlAttributeRemover {
         }
     }
 
-    // Метод для сохранения DOM-документа в файл
+    // Метод для сохранения DOM-документа в файл БЕЗ отступов
     private static void saveDocument(Document document, String filePath) throws Exception {
         TransformerFactory transformerFactory = TransformerFactory.newInstance();
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(document);
         StreamResult result = new StreamResult(new File(filePath));
 
-        // Настраиваем форматирование (для читаемости)
         transformer.setOutputProperty(OutputKeys.INDENT, "no");
+        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
 
         transformer.transform(source, result);
     }
-}
 
+    // Рекурсивный метод для удаления пробельных текстовых узлов
+    private static void removeWhitespaceNodes(Element element) {
+        NodeList children = element.getChildNodes();
+
+        for (int i = children.getLength() - 1; i >= 0; i--) {
+            Node child = children.item(i);
+
+            if (child.getNodeType() == Node.TEXT_NODE) {
+                String text = child.getTextContent();
+                if (text != null && text.trim().isEmpty()) {
+                    element.removeChild(child);
+                }
+            } else if (child.getNodeType() == Node.ELEMENT_NODE) {
+                removeWhitespaceNodes((Element) child);
+            }
+        }
+    }
+}
