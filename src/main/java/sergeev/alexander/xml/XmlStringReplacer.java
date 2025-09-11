@@ -25,7 +25,7 @@ public class XmlStringReplacer {
 
         try {
             // Загружаем XML файл
-            File xmlFile = new File("watchKids.xml");;
+            File xmlFile = new File("____.xml");;
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(xmlFile);
