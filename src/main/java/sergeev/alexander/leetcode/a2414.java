@@ -11,25 +11,43 @@ public class a2414 {
      */
 
     public static void main(String[] args) {
-        String s = "aaaabcdaaaaa";
+        String s = "abacaba";
         System.out.println(longestContinuousSubstring(s));
     }
 
-    // BEATS 43%
+    // BEATS 13%
     public static int longestContinuousSubstring(String s) {
         if (s.length() == 1) return 1;
 
         int max = 0;
-        int currPos = 1;
         int curr = 0;
+        int pos = 0;
+        while (pos < s.length() - 1) {
+            while (s.charAt(pos) + 1 == s.charAt(++pos)) {
+                curr++;
+            }
+            max = Math.max(max, curr);
+            curr = 0;
+        }
+
+        return max + 1;
+    }
+
+    // BEATS 43%
+    public static int longestContinuousSubstring1(String s) {
+        if (s.length() == 1) return 1;
+
+        int max = 0;
+        int currPos = 1;
+        int currStreak = 0;
 
         while (currPos < s.length()) {
             if (s.charAt(currPos - 1) + 1 == s.charAt(currPos)) {
-                curr++;
-                max = Math.max(max, curr);
+                currStreak++;
+                max = Math.max(max, currStreak);
             } else {
-                max = Math.max(max, curr);
-                curr = 0;
+                max = Math.max(max, currStreak);
+                currStreak = 0;
             }
             currPos++;
         }
