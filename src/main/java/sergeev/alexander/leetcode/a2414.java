@@ -15,25 +15,23 @@ public class a2414 {
         System.out.println(longestContinuousSubstring(s));
     }
 
-    // BEATS 19%
+    // BEATS 43%
     public static int longestContinuousSubstring(String s) {
         if (s.length() == 1) return 1;
 
         int max = 0;
-        int left = 0;
-        int right = 1;
+        int currPos = 1;
         int curr = 0;
 
-        while (right < s.length()) {
-            if (s.charAt(right - 1) + 1 == s.charAt(right)) {
+        while (currPos < s.length()) {
+            if (s.charAt(currPos - 1) + 1 == s.charAt(currPos)) {
                 curr++;
                 max = Math.max(max, curr);
             } else {
                 max = Math.max(max, curr);
                 curr = 0;
-                left = right;
             }
-            right++;
+            currPos++;
         }
 
         return max + 1;
