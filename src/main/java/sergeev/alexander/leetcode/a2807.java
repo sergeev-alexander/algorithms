@@ -41,13 +41,40 @@ public class a2807 {
         return dummy.next;
     }
 
-    public ListNode insertGreatestCommonDivisors_BEATS_14_PERCENT(ListNode head) {
+    // BEATS 54% (sometimes 100%)
+    public static ListNode insertGreatestCommonDivisors2(ListNode head) {
+        ListNode current = head;
+
+        while (current.next != null) {
+            ListNode second = current.next;
+            int gcd = findGcd(current.val, second.val);
+            current.next = new ListNode(gcd, second);
+            current = second;
+        }
+
+        return head;
+    }
+
+    public static int findGcd(int a, int b) {
+        while (true) {
+            if (a == 0) return b;
+            if (b == 0) return a;
+            if (a >= b) {
+                a %= b;
+            } else {
+                b %= a;
+            }
+        }
+    }
+
+    // BEATS 14%
+    public ListNode insertGreatestCommonDivisors1(ListNode head) {
         ListNode dummy = new ListNode(0, head);
         while (head != null) {
             if (head.next != null) {
                 ListNode second = head.next;
                 int min = Math.min(head.val, second.val);
-                for (int i = min; i > 0 ; i--) {
+                for (int i = min; i > 0; i--) {
                     if (head.val % i == 0 && second.val % i == 0) {
                         min = i;
                         break;
