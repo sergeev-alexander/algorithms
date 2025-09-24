@@ -28,6 +28,15 @@ public class GreatestCommonDivisor {
         }
     }
 
+    public static int iterativeGcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
     public static int iterativeGCD_SLOW(int a, int b) {
         if (a == 0) return b;
         if (b == 0) return a;
