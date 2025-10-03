@@ -34,24 +34,24 @@ public class TreeNode<T> {
     }
 
     public static <U extends Number> Number recursiveDFSSum(TreeNode<? extends U> root) {
-        double summ = 0;
-        summ += root.getValue().doubleValue();
+        double sum = 0;
+        sum += root.getValue().doubleValue();
         if (root.left != null) {
-            summ += recursiveDFSSum(root.getLeft()).doubleValue();
+            sum += recursiveDFSSum(root.getLeft()).doubleValue();
         }
         if (root.right != null) {
-            summ += recursiveDFSSum(root.getRight()).doubleValue();
+            sum += recursiveDFSSum(root.getRight()).doubleValue();
         }
-        return summ;
+        return sum;
     }
 
     public static <U extends Number> Number itarativeDFSSumm(TreeNode<? extends U> root) {
-        double summ = 0;
+        double sum = 0;
         Deque<TreeNode<? extends U>> stack = new LinkedList<>();
         stack.push(root);
         while (!stack.isEmpty()) {
             TreeNode<? extends U> node = stack.pop();
-            summ += node.getValue().doubleValue();
+            sum += node.getValue().doubleValue();
             if (node.getLeft() != null) {
                 stack.push(node.getLeft());
             }
@@ -59,16 +59,16 @@ public class TreeNode<T> {
                 stack.push(node.getRight());
             }
         }
-        return summ;
+        return sum;
     }
 
     public static <U extends Number> Number itarativeBFSSumm(TreeNode<? extends U> root) {
-        double summ = 0;
+        double sum = 0;
         Queue<TreeNode<? extends U>> queue = new ArrayDeque<>();
         queue.add(root);
         while (!queue.isEmpty()) {
             TreeNode<? extends U> node = queue.poll();
-            summ += node.getValue().doubleValue();
+            sum += node.getValue().doubleValue();
             if (node.getLeft() != null) {
                 queue.add(node.getLeft());
             }
@@ -76,6 +76,6 @@ public class TreeNode<T> {
                 queue.add(node.getRight());
             }
         }
-        return summ;
+        return sum;
     }
 }
