@@ -1,4 +1,4 @@
-package sergeev.alexander.data_structures.binary_tree;
+package sergeev.alexander.data_structures.bst;
 
 public class CheckBalance<T extends Comparable<T>> {
 

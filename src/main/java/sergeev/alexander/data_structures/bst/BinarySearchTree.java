@@ -1,7 +1,8 @@
-package sergeev.alexander.data_structures.binary_tree;
+package sergeev.alexander.data_structures.bst;
 
-public class BinaryTree<T extends Comparable<T>> {
-    TreeNode<T> root;
+public class BinarySearchTree<T extends Comparable<T>> {
+
+    private TreeNode<T> root;
 
     public void add(T value) {
         root = addRecursive(root, value);
