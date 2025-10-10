@@ -9,7 +9,7 @@ public class a1390 {
      */
 
     public static void main(String[] args) {
-        int[] nums = {21,4,7};
+        int[] nums = {21, 4, 7};
         System.out.println(sumFourDivisors(nums));
     }
 
@@ -34,5 +34,31 @@ public class a1390 {
             }
         }
         return result;
+    }
+
+    // BEATS 5%
+    public static int sumFourDivisors1(int[] nums) {
+        int sum = 0;
+
+        for (int num : nums) {
+            int curSum = 0;
+            int count = 0;
+
+            for (int j = 1; j <= num; j++) {
+                if (count > 4) {
+                    break;
+                }
+                if (num % j == 0) {
+                    curSum += j;
+                    count++;
+                }
+            }
+
+            if (count == 4) {
+                sum += curSum;
+            }
+        }
+
+        return sum;
     }
 }
