@@ -23,8 +23,39 @@ public class a1386 {
         System.out.println(maxNumberOfFamilies(n, reservedSeats));
     }
 
-    // BEATS 95%
+    // BEATS 100%
     public static int maxNumberOfFamilies(int n, int[][] reservedSeats) {
+        Map<Integer, boolean[]> map = new HashMap<>();
+
+        for (int[] arr : reservedSeats) {
+            int row = arr[0] - 1;
+            int seat = arr[1] - 1;
+            if (seat == 0 || seat == 9) continue;
+
+            map.computeIfAbsent(row, key -> new boolean[10])[seat] = true;
+        }
+
+        int count = 0;
+
+        for (boolean[] arr : map.values()) {
+
+            boolean firstFour = !arr[1] && !arr[2] && !arr[3] && !arr[4];
+            boolean lastFour = !arr[5] && !arr[6] && !arr[7] && !arr[8];
+
+            int rowCount = 0;
+
+            if (firstFour) rowCount++;
+            if (lastFour) rowCount++;
+            if (rowCount == 0 && !arr[3] && !arr[4] && !arr[5] && !arr[6]) rowCount++;
+
+            count += rowCount;
+        }
+
+        return (n - map.size()) * 2 + count;
+    }
+
+    // BEATS 95%
+    public static int maxNumberOfFamilies2(int n, int[][] reservedSeats) {
         Map<Integer, boolean[]> map = new HashMap<>();
 
         for (int[] arr : reservedSeats) {
